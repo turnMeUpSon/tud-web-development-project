@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Position Averaging Calculator</title>
+  <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/stocks_calculator.css">
+  <link rel="stylesheet" href="/css/animation.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+    
+    .topnav a {
+      float: left;
+      font-family: 'Press Start 2P';
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .topnav a.active {
+      background-color:  #6495ed;
+      color: white;
+    }
+    </style>
+</head>
+<body>
+
+<div class="topnav">
+    <a class="active" href="/html/postitions_calculator.html">Position Averaging Calculator</a>
+    <a href="/html/platform.html">Stocks</a>
+    <a href="/html/cryptocurrencies.html">Cryptocurrencies</a>
+    <a href="/html/economy.html">Economy</a>
+    <a href="/html/support.html">Support</a>
+    <a href="/html/index.html">Home</a>
+    <a href="/html/contactus.html">Contact Us</a>
+</div>
+
+<div class="calculator-container">
+  <h1>Stock Position Averaging Calculator</h1>
+
+  <div id="positions-container">
+    <!-- Positions will be added dynamically here -->
+  </div>
+
+  <button onclick="addPosition()">Add Position</button>
+  <button onclick="calculateAverage()">Calculate Average</button>
+
+  <p id="average-cost">Average Cost: $0.00</p>
+</div>
+</br>
+<div class="logo-holder">
+  <div class="bg"></div>
+  <div class="bar"></div>
+  <div class="bar fill1"></div>
+  <div class="bar fill2"></div>
+  <div class="bar fill3"></div>
+  <div class="bar fill4"></div>
+  <div class="bar fill1"></div>
+  <div class="bar fill5"></div>
+  <div class="bar fill6"></div>
+  <div class="bar"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/javascript/script.js"></script>
+</body>
+</html>

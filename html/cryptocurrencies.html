@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/test.css">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  font-family: 'Press Start 2P';
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color:  #6495ed;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="/html/cryptocurrencies.html">Cryptocurrencies</a>
+  <a href="/html/platform.html">Stocks</a>
+  <a href="/html/postitions_calculator.html">Position Averaging Calculator</a>
+  <a href="/html/economy.html">Economy</a>
+  <a href="/html/support.html">Support</a>
+  <a href="/html/index.html">Home</a>
+  <a href="/html/contactus.html">Contact Us</a>
+</div>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for cryptocurrencies...">
+    <table id="myTable">
+        <tr class="header">
+            <th style="width:30%;">Name</th>
+            <th style="width:30%;">Ticker</th>
+            <th style="width:30%;">Fair value</th>
+    </table>
+    <script type="text/javascript">
+      // Create an array with cryptocurrencies data
+      var cryptocurrencies = [
+            { name: "Bitcoin", ticker: "BTC", fairValue: "$37,668.84" },
+            { name: "Ethereum", ticker: "ETH", fairValue: "$2,036.23"},
+            { name: "BNB", ticker: "BNB", fairValue: "$227.14" },
+            { name: "XRP", ticker: "XRP", fairValue: "$0.6032" },
+            {name: "Solana", ticker: "SOL", fairValue: "$59.65"},
+            {name: "Cardano", ticker: "ADA", fairValue: "$0.374"},
+            {name: "Dogecoin", ticker: "DOGE", fairValue: "$0.08222"},
+            {name: "TRON", ticker: "TRX", fairValue: "$0.1036"},
+            {name: "Toncoin", ticker: "TON", fairValue: "$2.41"},
+            {name: "Chainlink", ticker: "LINK", fairValue: "$14.44"},
+            {name: "Avalanche", ticker: "AVAX", fairValue: "$21.07"},
+            {name: "Polygon", ticker: "MATIC", fairValue: "$0.7699"},
+            {name: "Polkadot", ticker: "DOT", fairValue: "$5.42"},
+            {name: "Litecoin", ticker: "LTC", fairValue: "$69.28"},
+            {name: "Shiba Inu", ticker: "SHIB", fairValue: "$0.000008184"},
+            {name: "Bitcoin Cash", ticker: "BCH", fairValue: "$222.19"},
+            {name: "UNUS SED LEO", ticker: "LEO", fairValue: "$3.98"},
+            {name: "Cosmos", ticker: "ATOM", fairValue: "$9.33"},
+            {name: "Uniswap", ticker: "UNI", fairValue: "$5.96"},
+      ];
+
+      // Function to populate the table with cryptocurrency data
+      function populateTable() {
+            var table = document.getElementById("myTable");
+
+            cryptocurrencies.forEach(function(cryptocurrency) {
+                var row = table.insertRow();
+                var nameCell = row.insertCell(0);
+                var tickerCell = row.insertCell(1);
+                var fairValueCell = row.insertCell(2);
+
+                nameCell.innerHTML = cryptocurrency.name;
+                tickerCell.innerHTML = cryptocurrency.ticker;
+                fairValueCell.innerHTML = cryptocurrency.fairValue;
+            });
+      }
+
+      // Function to filter cryptocurrencies based on user input
+      function filterCryptocurrencies() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+      }
+
+      // Call the function to populate the table with cryptocurrencies data
+      populateTable();
+    </script>
+    <script type="text/javascript" src="/javascript/test.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/javascript/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economy</title>
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/test.css">
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .topnav {
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        .topnav a {
+          float: left;
+          font-family: 'Press Start 2P';
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+        
+        .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+        
+        .topnav a.active {
+          background-color:  #6495ed;
+          color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/html/economy.html">Economy</a>
+        <a href="/html/platform.html">Stocks</a>
+        <a href="/html/postitions_calculator.html">Position Averaging Calculator</a>
+        <a href="/html/cryptocurrencies.html">Cryptocurrencies</a>
+        <a href="/html/support.html">Support</a>
+        <a href="/html/index.html">Home</a>
+        <a href="/html/contactus.html">Contact Us</a>
+    </div>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for global macro benchmarks...">
+    <table id="myTable" class="table-primary">
+        <tr class="header">
+            <th style="width:30%;">Name</th>
+            <th style="width:30%;">Ticker</th>
+            <th style="width:30%;">Value</th>
+        </tr>
+    </table>
+    <script type="text/javascript">
+    // Create an array with globar macro benchmarks and indicators
+    let global_macro = [
+        { name: "S&P500 Index", ticker: "SPX", value: "4546" },
+        { name: "Effective Federal Funds Rate", ticker: "FEDFUNDS", value: "5.33" },
+        { name: "United States Inflation Rate YoY", ticker: "USIRYY", value: "3.2" },
+        { name: "Civilian Unemployment Rate", ticker: "UNRATE", value: "3.9" },
+        {name: "10-Year Treasury Constant Maturity Minus 2-Year Treasury", ticker: "T10Y2Y", value: "-0.37"},
+        {name: "10-Year Treasury Constant Maturity Minus 3-Month Treasury Constant Maturity", ticker: "T10Y3M", value: "-1.18"},
+        {name: "United States Inflation Rate YoY", ticker: "USIRYY", value: "3.2"},
+        {name: "Crypto Fear & Greed Index", ticker: "CFGI", value: "74 - Greed"},
+        {name: "S&P500 Fear & Greed Index", ticker: "SPXFGI", value: "64 - Greed"},
+    ]
+
+    // Function to populate the table with global macro indicators data
+    function populateTable() {
+            var table = document.getElementById("myTable");
+            global_macro.forEach(function(economy_indicator) {
+                var row = table.insertRow();
+                var nameCell = row.insertCell(0);
+                var tickerCell = row.insertCell(1);
+                var fairValueCell = row.insertCell(2);
+
+                nameCell.innerHTML = economy_indicator.name;
+                tickerCell.innerHTML = economy_indicator.ticker;
+                fairValueCell.innerHTML = economy_indicator.value;
+            });
+    }
+
+    // Function to filter global macro indicators based on user input
+    function filterGlobalMacroIndicators() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+    }
+
+    // Call the function to populate the table with global macro data
+    populateTable();
+    </script>
+    <script type="text/javascript" src="/javascript/test.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/javascript/script.js"></script>
+</body>
+</html>
